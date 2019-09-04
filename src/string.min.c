@@ -11,13 +11,14 @@
  * adicione a la dirección de memoria, cómo hago por ejemplo en la función "copy".
  * -------------------------------------------------------------------------------------------------------------------------------------
  */ 
+
+/**
+ * @param char *src es un puntero a la posición desde dónde se desea comenzar a copiar
+ * @param char *destination es un puntero a la posición dónde se desea pegar el contenido
+ * @return devuelve si la copia fue exitosa o no pudo realizarse. Por ahora, siempre dará TRUE :D
+ */
 BOOL copy(const char *src, char * const destination) 
 {
-    /**
-     * @param char *src es un puntero a la posición desde dónde se desea comenzar a copiar
-     * @param char *destination es un puntero a la posición dónde se desea pegar el contenido
-     * @return devuelve si la copia fue exitosa o no pudo realizarse. Por ahora, siempre dará TRUE :D
-     */
     int i = 0;
     while( *(src+i) )
     {
@@ -28,4 +29,18 @@ BOOL copy(const char *src, char * const destination)
     *(destination+i+1) = '\0';
 
     return TRUE; // Se terminó la copia
+}
+
+BOOL compare(const char *input1, const char *input2)
+{
+    int i = 0, j = 0;
+    while( *(input1 + i) )
+        i++;
+
+    while( *(input1 + j) == *(input2 + j) && *(input1 + j) && *(input2 + j) )
+    {
+        j++;
+    }
+
+    return i == j; // Devuelve 1 (TRUE) si i == j
 }
