@@ -15,9 +15,9 @@
 /**
  * @param char *src es un puntero a la posición desde dónde se desea comenzar a copiar
  * @param char *destination es un puntero a la posición dónde se desea pegar el contenido
- * @return devuelve si la copia fue exitosa o no pudo realizarse. Por ahora, siempre dará TRUE :D
+ * @return devuelve los caracteres leídos, por si se quiere aumentar el puntero de destination
  */
-BOOL copy(const char *src, char * const destination) 
+int copy(const char *src, char * const destination) 
 {
     int i = 0;
     while( *(src+i) )
@@ -28,19 +28,27 @@ BOOL copy(const char *src, char * const destination)
         
     *(destination+i+1) = '\0';
 
-    return TRUE; // Se terminó la copia
+    return i; // Se terminó la copia
 }
 
-BOOL compare(const char *input1, const char *input2)
+int lenght(const char *input1)
 {
-    int i = 0, j = 0;
+    int i = 0;
     while( *(input1 + i) )
         i++;
 
-    while( *(input1 + j) == *(input2 + j) && *(input1 + j) && *(input2 + j) )
-    {
-        j++;
-    }
+    return i;
+}
 
+BOOL compare(const char *input1, const char *input2) // Check. Always return false
+{
+    int i = 0, j = 0;
+
+    i = lenght(input1); 
+
+    while( *(input1 + j) == *(input2 + j) )
+        j++;
+
+    printf("i = %d, j = %d\n", i, j);
     return i == j; // Devuelve 1 (TRUE) si i == j
 }
