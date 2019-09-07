@@ -18,7 +18,7 @@ int main()
     }
     else
     {
-        printf("\"%s\" y \"%s\" son cadenas distintas\n", source, test);
+        printf("\"%s\" y \"%s\" son cadenas distintas\n", source, destination);
     }
     
 }
